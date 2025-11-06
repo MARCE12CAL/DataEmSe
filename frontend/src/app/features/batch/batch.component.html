@@ -1,0 +1,65 @@
+<div class="container">
+  <h1>Procesamiento Batch</h1>
+  <p>Genera scripts Python para procesar múltiples archivos automáticamente</p>
+
+  <div class="card">
+    <h2>Configuración del Batch</h2>
+    <form (ngSubmit)="generateScript()">
+      <div class="form-group">
+        <label>Nombre del Perfil:</label>
+        <input type="text" 
+               [(ngModel)]="config.profile_name" 
+               name="profile_name"
+               class="form-control" 
+               required>
+      </div>
+
+      <div class="form-group">
+        <label>Ruta del CSV de Configuración:</label>
+        <input type="text" 
+               [(ngModel)]="config.csv_path" 
+               name="csv_path"
+               class="form-control" 
+               required>
+      </div>
+
+      <div class="form-group">
+        <label>Carpeta de Salida:</label>
+        <input type="text" 
+               [(ngModel)]="config.output_folder" 
+               name="output_folder"
+               class="form-control" 
+               required>
+      </div>
+
+      <div class="form-group">
+        <label>Prefijo de Archivos:</label>
+        <input type="text" 
+               [(ngModel)]="config.file_prefix" 
+               name="file_prefix"
+               class="form-control">
+      </div>
+
+      <button type="submit" [disabled]="loading" class="btn btn-primary">
+        {{loading ? 'Generando...' : 'Generar Script'}}
+      </button>
+    </form>
+  </div>
+
+  <div *ngIf="error" class="alert alert-error">
+    {{error}}
+  </div>
+
+  <div *ngIf="generatedScript" class="card">
+    <h2>Script Generado</h2>
+    <div class="script-actions">
+      <button (click)="downloadScript()" class="btn btn-success">
+         Descargar Script
+      </button>
+      <button (click)="copyToClipboard()" class="btn btn-secondary">
+         Copiar al Portapapeles
+      </button>
+    </div>
+    <pre class="script-preview">{{generatedScript}}</pre>
+  </div>
+</div>

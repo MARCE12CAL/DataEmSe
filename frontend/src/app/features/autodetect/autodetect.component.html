@@ -1,0 +1,70 @@
+<div class="container">
+  <h1> Auto-Detección de Campos</h1>
+  <p>Sube 2-5 archivos Excel de muestra para detectar campos automáticamente</p>
+
+  <div class="card">
+    <div class="form-group">
+      <label>Seleccionar archivos Excel:</label>
+      <input type="file" 
+             (change)="onFilesSelected($event)" 
+             multiple 
+             accept=".xlsx,.xls,.csv"
+             class="form-control">
+      <small *ngIf="archivosMuestra.length > 0" class="text-success">
+        {{archivosMuestra.length}} archivo(s) seleccionado(s)
+      </small>
+    </div>
+
+    <button (click)="analizarArchivos()" 
+            [disabled]="cargando || archivosMuestra.length === 0"
+            class="btn btn-primary">
+      {{cargando ? 'Analizando...' : 'Analizar Archivos'}}
+    </button>
+  </div>
+
+  <div *ngIf="error" class="alert alert-error">
+    {{error}}
+  </div>
+
+  <div *ngIf="estadisticas" class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">{{estadisticas.total_files}}</div>
+      <div class="stat-label">Archivos Analizados</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{estadisticas.unique_columns}}</div>
+      <div class="stat-label">Columnas Únicas</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{camposDetectados.length}}</div>
+      <div class="stat-label">Campos Detectados</div>
+    </div>
+  </div>
+
+  <div *ngIf="camposDetectados.length > 0" class="card">
+    <h2>Campos Detectados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Campo Original</th>
+          <th>Campo Sugerido</th>
+          <th>Tipo de Dato</th>
+          <th>Confianza</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let campo of camposDetectados">
+          <td>{{campo.original_column}}</td>
+          <td>{{campo.suggested_field}}</td>
+          <td>{{campo.data_type}}</td>
+          <td>
+            <span class="badge" [class.badge-success]="campo.confidence >= 0.8"
+                                [class.badge-warning]="campo.confidence < 0.8">
+              {{(campo.confidence * 100).toFixed(0)}}%
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

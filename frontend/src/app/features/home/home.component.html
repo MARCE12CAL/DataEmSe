@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="hero">
+    <h1> Bienvenido a Excel Data Mapper</h1>
+    <p class="subtitle">Sistema completo para mapeo y normalización de datos Excel</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card" *ngFor="let feature of features">
+      <div class="feature-icon">{{feature.icon}}</div>
+      <h3>{{feature.title}}</h3>
+      <p>{{feature.description}}</p>
+      <a [routerLink]="feature.link" class="btn btn-primary">Ir a {{feature.title}}</a>
+    </div>
+  </div>
+
+  <div class="quick-start card">
+    <h2> Inicio Rápido</h2>
+    <ol>
+      <li>Sube 2-5 archivos Excel de muestra en <strong>Auto-Detección</strong></li>
+      <li>El sistema detectará campos automáticamente</li>
+      <li>Crea un perfil desde el análisis o personaliza uno nuevo</li>
+      <li>Usa el perfil para procesamiento batch de múltiples archivos</li>
+    </ol>
+  </div>
+</div>

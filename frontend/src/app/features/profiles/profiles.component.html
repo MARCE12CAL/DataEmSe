@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="header">
+    <h1> Gestión de Perfiles</h1>
+    <button (click)="showCreateForm = !showCreateForm" class="btn btn-primary">
+      {{showCreateForm ? 'Cancelar' : 'Nuevo Perfil'}}
+    </button>
+  </div>
+
+  <div *ngIf="showCreateForm" class="card">
+    <h2>Crear Nuevo Perfil</h2>
+    <form (ngSubmit)="createProfile()">
+      <div class="form-group">
+        <label>Nombre del Perfil:</label>
+        <input type="text" 
+               [(ngModel)]="newProfile.nombre" 
+               name="nombre"
+               class="form-control" 
+               required>
+      </div>
+
+      <div class="form-group">
+        <label>Descripción:</label>
+        <textarea [(ngModel)]="newProfile.descripcion" 
+                  name="descripcion"
+                  class="form-control" 
+                  rows="3"></textarea>
+      </div>
+
+      <button type="submit" [disabled]="loading" class="btn btn-success">
+        Crear Perfil
+      </button>
+    </form>
+  </div>
+
+  <div *ngIf="error" class="alert alert-error">
+    {{error}}
+  </div>
+
+  <div class="profiles-grid">
+    <div *ngFor="let profile of profiles" class="profile-card">
+      <h3>{{profile.nombre}}</h3>
+      <p>{{profile.descripcion}}</p>
+      <div class="profile-meta">
+        <span class="badge badge-info">{{profile.campos.length}} campos</span>
+      </div>
+      <div class="profile-actions">
+        <button (click)="selectedProfile = profile" class="btn btn-secondary">Ver</button>
+        <button (click)="deleteProfile(profile.id!)" class="btn btn-danger">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="profiles.length === 0 && !loading" class="empty-state">
+    <p>No hay perfiles creados aún</p>
+    <button (click)="showCreateForm = true" class="btn btn-primary">Crear Primer Perfil</button>
+  </div>
+</div>
