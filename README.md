@@ -153,14 +153,4 @@ Ver documentación completa en backend/README.md
 
 ---
 
-## Contribuir
 
-Las contribuciones son bienvenidas. Por favor:
-
-1. Fork el proyecto
-2. Crea tu rama: `git checkout -b feature/AmazingFeature`
-3. Commit tus cambios: `git commit -m 'Add AmazingFeature'`
-4. Push a la rama: `git push origin feature/AmazingFeature`
-5. Abre un Pull Request
-
----
