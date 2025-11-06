@@ -1,14 +1,14 @@
-# ⚡ Inicio Rápido - Excel Data Mapper
+#  Inicio Rápido - Excel Data Mapper
 
 Esta guía te ayudará a tener el proyecto funcionando en menos de 5 minutos.
 
-## 📋 Pre-requisitos
+##  Pre-requisitos
 
 Asegúrate de tener instalado:
 
-- ✅ Python 3.8 o superior
-- ✅ Node.js 18+ y npm
-- ✅ pip (gestor de paquetes de Python)
+-  Python 3.8 o superior
+-  Node.js 18+ y npm
+-  pip (gestor de paquetes de Python)
 
 Para verificar:
 
@@ -18,7 +18,7 @@ node --version
 npm --version
 ```
 
-## 🚀 Pasos de Instalación
+##  Pasos de Instalación
 
 ### Paso 1: Descomprimir el Proyecto
 
@@ -48,7 +48,7 @@ pip install -r requirements.txt
 python run.py
 ```
 
-✅ **El backend estará corriendo en:** `http://localhost:5000`
+ **El backend estará corriendo en:** `http://localhost:5000`
 
 No cierres esta terminal. El servidor debe seguir corriendo.
 
@@ -66,11 +66,11 @@ npm install
 npm start
 ```
 
-✅ **El frontend estará corriendo en:** `http://localhost:4200`
+ **El frontend estará corriendo en:** `http://localhost:4200`
 
 El navegador se abrirá automáticamente.
 
-## 🎉 ¡Listo!
+##  ¡Listo!
 
 Ahora puedes:
 
@@ -80,7 +80,7 @@ Ahora puedes:
 4. Crear perfiles de mapeo
 5. Generar scripts de procesamiento batch
 
-## 🧪 Primer Uso
+##  Primer Uso
 
 ### Probar la Auto-Detección
 
@@ -109,7 +109,7 @@ Ahora puedes:
 3. Haz clic en "Generar Script"
 4. Descarga el script Python generado
 
-## 🔧 Solución de Problemas
+##  Solución de Problemas
 
 ### Error: "No module named 'flask'"
 
@@ -152,24 +152,15 @@ O en el frontend (edita `package.json`):
 
 Ver `INSTALACION_WINDOWS.md` para soluciones específicas de Windows.
 
-## 📚 Siguientes Pasos
+##  Siguientes Pasos
 
 - Lee el [README.md](README.md) completo
 - Explora la documentación de la API en `backend/README.md`
 - Revisa los ejemplos de uso
 - Personaliza los perfiles según tus necesidades
 
-## 🆘 ¿Necesitas Ayuda?
 
-- Revisa la sección de **Solución de Problemas** arriba
-- Consulta los archivos README en backend y frontend
-- Verifica que todos los requisitos estén instalados
 
-## ⏱️ Resumen de Tiempo
 
-- ⏰ Descomprimir: 30 segundos
-- ⏰ Backend setup: 2-3 minutos
-- ⏰ Frontend setup: 2-3 minutos
-- ⏰ **Total: ~5 minutos**
 
-¡Disfruta usando Excel Data Mapper! 🎊
+
